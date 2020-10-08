@@ -1,3 +1,6 @@
 resources:
-- namespace.yaml
-- deployment.yaml
+  - namespace.yaml
+  - deployment.yaml
+  - rsig-rpp-merged.yaml
+  - rsig-merged.yaml
+  - rpp-merged.yaml

@@ -1,0 +1,27 @@
+apiVersion: research.ibm.com/v1alpha1
+kind: ResourceProtectionProfile
+metadata:
+  name: rpp-merged
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  ignoreAttrs:
+    - attrs:
+        - spec.template.spec.containers.0.resources.*
+      match:
+        kind: DaemonSet
+        name: logdna-agent
+  rules:
+    - match:
+        - kind: ServiceAccount
+          name: logdna-agent
+        - kind: Role
+          name: logdna-agent
+        - kind: ClusterRole
+          name: logdna-agent
+        - kind: RoleBinding
+          name: logdna-agent
+        - kind: ClusterRoleBinding
+          name: logdna-agent
+        - kind: DaemonSet
+          name: logdna-agent
